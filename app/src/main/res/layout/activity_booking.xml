@@ -65,30 +65,30 @@
         android:background="@android:drawable/edit_text"/>
 
             <!-- Upload Bukti Pembayaran -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Upload Bukti Pembayaran"
-                android:textSize="16sp"
-                android:layout_marginBottom="8dp"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Upload Bukti Pembayaran"-->
+<!--                android:textSize="16sp"-->
+<!--                android:layout_marginBottom="8dp"/>-->
 
 
-            <ImageView
-                android:id="@+id/imgBukti"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="#EEEEEE"
-                android:scaleType="centerCrop"
-                android:layout_marginBottom="8dp"
-                android:contentDescription="Preview bukti pembayaran"/>
+<!--            <ImageView-->
+<!--                android:id="@+id/imgBukti"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:background="#EEEEEE"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:contentDescription="Preview bukti pembayaran"/>-->
 
 
-            <Button
-                android:id="@+id/btnUpload"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pilih File / Upload"
-                android:layout_marginBottom="24dp"/>
+<!--            <Button-->
+<!--                android:id="@+id/btnUpload"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Pilih File / Upload"-->
+<!--                android:layout_marginBottom="24dp"/>-->
 
     <Button
         android:id="@+id/btnSubmitBooking"
