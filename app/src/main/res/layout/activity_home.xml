@@ -1,226 +1,297 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
-    android:padding="16dp"
-    android:background="#7FC8F6">
+    android:padding="0dp"
+    android:background="#7FC8F6"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp">
-
-        <EditText
-            android:id="@+id/etSearch"
-            android:hint="Search tour guide..."
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:padding="12dp"
-            android:background="@android:drawable/edit_text"
-            android:drawableStart="@android:drawable/ic_menu_search"
-            android:drawablePadding="10dp"
-            android:layout_marginBottom="20dp"/>
-
-        <ImageView
-            android:id="@+id/imgBanner"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/banner2"
-            android:scaleType="centerCrop"
-            android:background="@android:color/darker_gray"
-            android:layout_marginBottom="24dp"
-            android:clipToOutline="true"
-            android:foreground="?attr/selectableItemBackground"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
 
         <LinearLayout
-            android:id="@+id/containerTours"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp">
+
+<!--            <Button-->
+<!--                android:id="@+id/btnHistory"-->
+<!--                android:text="History Booking"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:hint="Search tour guide..."
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:padding="12dp"
+                android:background="@android:drawable/edit_text"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="10dp"
+                android:layout_marginBottom="20dp"/>
+
+            <ImageView
+                android:id="@+id/imgBanner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/banner2"
+                android:scaleType="centerCrop"
+                android:background="@android:color/darker_gray"
+                android:layout_marginBottom="24dp"
+                android:clipToOutline="true"
+                android:foreground="?attr/selectableItemBackground"/>
 
             <LinearLayout
+                android:id="@+id/containerTours"
                 android:orientation="vertical"
-                android:padding="12dp"
-                android:layout_marginBottom="18dp"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToOutline="true">
+                android:layout_height="wrap_content">
 
-                <ImageView
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginBottom="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/jakarta1"
-                    android:background="@android:color/darker_gray"
-                    android:clipToOutline="true" />
+                    android:layout_height="wrap_content"
+                    android:clipToOutline="true">
 
-                <TextView
-                    android:text="Jakarta"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#212121"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/jakarta1"
+                        android:background="@android:color/darker_gray"
+                        android:clipToOutline="true" />
 
+                    <TextView
+                        android:text="Jakarta"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginBottom="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToOutline="true">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/malang1"
+                        android:background="@android:color/darker_gray"
+                        android:clipToOutline="true" />
+
+                    <TextView
+                        android:text="Malang"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginBottom="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToOutline="true">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/batu1"
+                        android:background="@android:color/darker_gray"
+                        android:clipToOutline="true" />
+
+                    <TextView
+                        android:text="Batu"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginBottom="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToOutline="true">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bali1"
+                        android:background="@android:color/darker_gray"
+                        android:clipToOutline="true" />
+
+                    <TextView
+                        android:text="Bali"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginBottom="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToOutline="true">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/yogyakarta1"
+                        android:background="@android:color/darker_gray"
+                        android:clipToOutline="true" />
+
+                    <TextView
+                        android:text="Yogyakarta"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginBottom="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToOutline="true">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/surabaya1"
+                        android:background="@android:color/darker_gray"
+                        android:clipToOutline="true" />
+
+                    <TextView
+                        android:text="Surabaya"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:padding="12dp"
-                android:layout_marginBottom="18dp"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToOutline="true">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/malang1"
-                    android:background="@android:color/darker_gray"
-                    android:clipToOutline="true" />
-
-                <TextView
-                    android:text="Malang"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#212121"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:padding="12dp"
-                android:layout_marginBottom="18dp"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToOutline="true">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/batu1"
-                    android:background="@android:color/darker_gray"
-                    android:clipToOutline="true" />
-
-                <TextView
-                    android:text="Batu"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#212121"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:padding="12dp"
-                android:layout_marginBottom="18dp"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToOutline="true">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/bali1"
-                    android:background="@android:color/darker_gray"
-                    android:clipToOutline="true" />
-
-                <TextView
-                    android:text="Bali"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#212121"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:padding="12dp"
-                android:layout_marginBottom="18dp"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToOutline="true">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/yogyakarta1"
-                    android:background="@android:color/darker_gray"
-                    android:clipToOutline="true" />
-
-                <TextView
-                    android:text="Yogyakarta"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#212121"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:padding="12dp"
-                android:layout_marginBottom="18dp"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToOutline="true">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/surabaya1"
-                    android:background="@android:color/darker_gray"
-                    android:clipToOutline="true" />
-
-                <TextView
-                    android:text="Surabaya"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#212121"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
         </LinearLayout>
 
+    </ScrollView>
+
+    <!-- Bagian footer nya-->
+    <LinearLayout
+        android:id="@+id/footerNav"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:padding="8dp"
+        android:elevation="8dp"
+        android:gravity="center"
+        >
+
+        <LinearLayout
+            android:id="@+id/btnFooterHome"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/outline_add_home_24" />
+
+            <TextView
+                android:text="Home"
+                android:textColor="#000"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnFooterHistory"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/outline_article_history_24" />
+
+            <TextView
+                android:text="History"
+                android:textColor="#000"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
     </LinearLayout>
-</ScrollView>
+</LinearLayout>

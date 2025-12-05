@@ -2,7 +2,9 @@ package com.example.tourguide
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -40,5 +42,22 @@ class HomeActivity : AppCompatActivity() {
         setClick(3, "Bali", "Tour Guide Di Kota Bali", R.drawable.bali1)
         setClick(4, "Yogyakarta", "Tour Guide Di Kota Yogyakarta", R.drawable.yogyakarta1)
         setClick(5, "Surabaya", "Tour Guide Di Kota Surabaya", R.drawable.surabaya1)
+
+//        val btnHistory = findViewById<Button>(R.id.btnHistory)
+//        btnHistory.setOnClickListener {
+//            startActivity(Intent(this, HistoryActivity::class.java))
+//        }
+
+        val btnFooterHome = findViewById<LinearLayout>(R.id.btnFooterHome)
+        val btnFooterHistory = findViewById<LinearLayout>(R.id.btnFooterHistory)
+
+        btnFooterHome.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
+        btnFooterHistory.setOnClickListener {
+            startActivity(Intent(this, HistoryActivity::class.java))
+        }
+
     }
 }
