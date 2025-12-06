@@ -2,13 +2,16 @@ package com.example.tourguide
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.addTextChangedListener
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +60,34 @@ class HomeActivity : AppCompatActivity() {
 
         btnFooterHistory.setOnClickListener {
             startActivity(Intent(this, HistoryActivity::class.java))
+        }
+
+        // Bagian untuk fungsi Search
+        val etSearch = findViewById<EditText>(R.id.etSearch)
+
+        val itemJakarta = findViewById<LinearLayout>(R.id.itemJakarta)
+        val itemMalang = findViewById<LinearLayout>(R.id.itemMalang)
+        val itemBatu = findViewById<LinearLayout>(R.id.itemBatu)
+        val itemBali = findViewById<LinearLayout>(R.id.itemBali)
+        val itemYogyakarta = findViewById<LinearLayout>(R.id.itemYogyakarta)
+        val itemSurabaya = findViewById<LinearLayout>(R.id.itemSurabaya)
+
+        val items = listOf(
+            Triple(itemJakarta, "jakarta", itemJakarta),
+            Triple(itemMalang, "malang", itemMalang),
+            Triple(itemBatu, "batu", itemBatu),
+            Triple(itemBali, "bali", itemBali),
+            Triple(itemYogyakarta, "yogyakarta", itemYogyakarta),
+            Triple(itemSurabaya, "surabaya", itemSurabaya)
+        )
+
+        etSearch.addTextChangedListener {
+            val keyword = it.toString().lowercase()
+
+            items.forEach { (view, name, _) ->
+                view.visibility =
+                    if (name.contains(keyword)) View.VISIBLE else View.GONE
+            }
         }
 
     }
