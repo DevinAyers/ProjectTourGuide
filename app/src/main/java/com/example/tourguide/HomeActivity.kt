@@ -27,24 +27,24 @@ class HomeActivity : AppCompatActivity() {
         val container = findViewById<LinearLayout>(R.id.containerTours)
 
 
-        fun setClick(index: Int, judul: String, des: String, img: Int) {
+        fun setClick(index: Int, judul: String, des: String, img: Int, kuota: Int) {
             val item = container.getChildAt(index) as LinearLayout
             item.setOnClickListener {
                 val i = Intent(this, DetailActivity::class.java)
                 i.putExtra("judul", judul)
                 i.putExtra("deskripsi", des)
-                i.putExtra("kuota", 10)
+                i.putExtra("kuota", kuota)
                 i.putExtra("gambar", img)
                 startActivity(i)
             }
         }
 
-        setClick(0, "Jakarta", "Tour Guide Di Kota Jakarta", R.drawable.jakarta1)
-        setClick(1, "Malang", "Tour Guide Di Kota Malang.", R.drawable.malang1)
-        setClick(2, "Batu", "Tour Guide Di Kota Batu", R.drawable.batu1)
-        setClick(3, "Bali", "Tour Guide Di Kota Bali", R.drawable.bali1)
-        setClick(4, "Yogyakarta", "Tour Guide Di Kota Yogyakarta", R.drawable.yogyakarta1)
-        setClick(5, "Surabaya", "Tour Guide Di Kota Surabaya", R.drawable.surabaya1)
+        setClick(0, "Jakarta", "Tour Guide Di Kota Jakarta", R.drawable.jakarta1, 5)
+        setClick(1, "Malang", "Tour Guide Di Kota Malang.", R.drawable.malang1,10)
+        setClick(2, "Batu", "Tour Guide Di Kota Batu", R.drawable.batu1,15)
+        setClick(3, "Bali", "Tour Guide Di Kota Bali", R.drawable.bali1,6)
+        setClick(4, "Yogyakarta", "Tour Guide Di Kota Yogyakarta", R.drawable.yogyakarta1,7)
+        setClick(5, "Surabaya", "Tour Guide Di Kota Surabaya", R.drawable.surabaya1,9)
 
 //        val btnHistory = findViewById<Button>(R.id.btnHistory)
 //        btnHistory.setOnClickListener {
