@@ -1,58 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BookingActivity"
     android:padding="16dp">
 
   <LinearLayout
       android:orientation="vertical"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginHorizontal="16dp">
+      android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/tvBookingJudul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Booking Tour"
-        android:textSize="24sp"
+        android:text="Form Pemesanan"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:layout_marginBottom="24dp"/>
-
-    <ImageView
-        android:id="@+id/btnBack2"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:src="@drawable/back"
-        android:padding="4dp"
-        android:layout_marginBottom="12dp" />
-
+        android:layout_marginBottom="20dp"/>
 
     <EditText
         android:id="@+id/etNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nama Pemesan"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp"
-        android:background="@android:drawable/edit_text"/>
-
+        android:hint="Nama Lengkap"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etTelpon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="No. Telepon"
+        android:hint="Nomor Telepon"
         android:inputType="phone"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp"
-        android:background="@android:drawable/edit_text"/>
-
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etJumlah"
@@ -60,42 +39,36 @@
         android:layout_height="wrap_content"
         android:hint="Jumlah Orang"
         android:inputType="number"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp"
-        android:background="@android:drawable/edit_text"/>
+        android:layout_marginBottom="20dp" />
 
-            <!-- Upload Bukti Pembayaran -->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Upload Bukti Pembayaran"-->
-<!--                android:textSize="16sp"-->
-<!--                android:layout_marginBottom="8dp"/>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Bukti Pembayaran"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
 
+    <ImageView
+        android:id="@+id/imgBukti"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="#DDDDDD"
+        android:scaleType="centerInside"
+        android:src="@android:drawable/ic_menu_camera"
+        android:layout_marginBottom="8dp"/>
 
-<!--            <ImageView-->
-<!--                android:id="@+id/imgBukti"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="200dp"-->
-<!--                android:background="#EEEEEE"-->
-<!--                android:scaleType="centerCrop"-->
-<!--                android:layout_marginBottom="8dp"-->
-<!--                android:contentDescription="Preview bukti pembayaran"/>-->
-
-
-<!--            <Button-->
-<!--                android:id="@+id/btnUpload"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Pilih File / Upload"-->
-<!--                android:layout_marginBottom="24dp"/>-->
+    <Button
+        android:id="@+id/btnUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih Gambar"
+        android:layout_marginBottom="24dp"/>
 
     <Button
         android:id="@+id/btnSubmitBooking"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit Booking"
-        android:backgroundTint="#4CAF50"
-        android:textColor="#FFFFFF"/>
+        android:text="Konfirmasi Booking"
+        android:backgroundTint="#4CAF50"/>
   </LinearLayout>
 </ScrollView>
