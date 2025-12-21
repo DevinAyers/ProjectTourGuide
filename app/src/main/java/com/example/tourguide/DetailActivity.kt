@@ -11,12 +11,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 
 class DetailActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_detail)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -31,40 +34,44 @@ class DetailActivity : AppCompatActivity() {
         val imgDetail = findViewById<ImageView>(R.id.imgDetail)
         val btnBooking = findViewById<Button>(R.id.btnBooking)
 
-        // DATA dari HomeActivity
-        val judul = intent.getStringExtra("judul")
-        val kota = intent.getStringExtra("kota")
-        val deskripsi = intent.getStringExtra("deskripsi")
-        val kuota = intent.getIntExtra("kuota", 0)
-        val gambar = intent.getIntExtra("gambar", 0)
+        val tour = intent.getParcelableExtra<TourData>("tour")
 
+        if (tour == null) {
+            finish()
+            return
+        }
 
-        tvJudul.text = judul
-        tvDeskripsi.text = deskripsi
-        tvKuota.text = "Kuota: $kuota"
-        imgDetail.setImageResource(gambar)
+        tvJudul.text = tour.judul
+        tvDeskripsi.text = tour.deskripsi
+        tvKuota.text = "Kuota: ${tour.kuota}"
 
+        Glide.with(this)
+            .load(tour.gambarUrl)
+            .into(imgDetail)
 
-        val jamList = listOf("08.00 - 16.00", "08.00 - 20.00")
-        spinnerJam.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, jamList)
+        spinnerTanggal.adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_dropdown_item,
+            tour.tanggalTersedia
+        )
 
-        val tglList = listOf("1 Des 2025", "2 Des 2025", "3 Des 2025", "4 Des 2025", "5 Des 2025")
-        spinnerTanggal.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, tglList)
-
+        spinnerJam.adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_dropdown_item,
+            tour.jamTersedia
+        )
 
         btnBooking.setOnClickListener {
             val intent = Intent(this, BookingActivity::class.java)
-            intent.putExtra("judul", judul)
-            intent.putExtra("kota", kota)
+            intent.putExtra("tour", tour)
             intent.putExtra("tanggal", spinnerTanggal.selectedItem.toString())
             intent.putExtra("jam", spinnerJam.selectedItem.toString())
             startActivity(intent)
         }
 
-        val btnBack = findViewById<ImageView>(R.id.btnBack)
+        val btnBack = findViewById<ImageView>(R.id.btnBack3)
         btnBack.setOnClickListener {
             finish()
         }
-
     }
 }

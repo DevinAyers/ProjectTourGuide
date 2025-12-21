@@ -2,12 +2,17 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:id="@+id/main"
+    tools:context=".DetailActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp">
 
         <ImageView
             android:id="@+id/imgDetail"
@@ -16,6 +21,14 @@
             android:scaleType="centerCrop"
             android:layout_marginBottom="16dp"
             android:background="@android:color/darker_gray"/>
+
+        <ImageView
+            android:id="@+id/btnBack3"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/back"
+            android:padding="4dp"
+            android:layout_marginBottom="2dp" />
 
         <TextView
             android:id="@+id/tvJudul"

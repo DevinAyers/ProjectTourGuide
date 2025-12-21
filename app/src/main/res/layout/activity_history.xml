@@ -1,53 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp">
+    android:layout_height="match_parent"
+    tools:context=".HistoryActivity"
+    android:padding="0dp"
+    android:background="#7FC8F6"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/btnBack3"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/back"
+        android:padding="4dp"
+        android:layout_marginBottom="2dp" />
+
+    <TextView
+        android:layout_marginHorizontal="16dp"
+        android:text="History Booking"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginBottom="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginHorizontal="16dp"
+        android:id="@+id/rvHistory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="12dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp"/>
 
-        <ImageView
-            android:id="@+id/imgHist"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:scaleType="centerCrop"
-            android:src="@android:color/darker_gray" />
+    <!-- Bagian Footer -->
+    <LinearLayout
+        android:id="@+id/footerNav"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:padding="8dp"
+        android:elevation="8dp"
+        android:gravity="center">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="12dp">
+            android:id="@+id/btnFooterHome"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/outline_add_home_24" />
 
             <TextView
-                android:id="@+id/tvHistJudul"
+                android:text="Home"
+                android:textColor="#000"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nama Tour"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnFooterHistory"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/outline_article_history_24" />
 
             <TextView
-                android:id="@+id/tvHistNama"
+                android:text="History"
+                android:textColor="#000"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pemesan: Nama"
-                android:textSize="14sp"/>
-
-            <TextView
-                android:id="@+id/tvHistTanggal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="12 Des 2024 | 08:00"
-                android:textColor="#757575"
-                android:textSize="12sp"/>
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</LinearLayout>

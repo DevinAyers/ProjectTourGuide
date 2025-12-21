@@ -11,8 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.Firebase
-import com.google.firebase.firestore.firestore
+import com.google.firebase.firestore.FirebaseFirestore
 
 class BookingActivity : AppCompatActivity() {
 
@@ -23,51 +22,69 @@ class BookingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_booking)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val db = Firebase.firestore
-
-        val btnBack2 = findViewById<ImageView>(R.id.btnBack2)
-        btnBack2.setOnClickListener {
-            finish()
-        }
+        val db = FirebaseFirestore.getInstance()
 
         val tvBookingJudul = findViewById<TextView>(R.id.tvBookingJudul)
         val etNama = findViewById<EditText>(R.id.etNama)
         val etTelpon = findViewById<EditText>(R.id.etTelpon)
         val etJumlah = findViewById<EditText>(R.id.etJumlah)
+        val btnSubmit = findViewById<Button>(R.id.btnSubmitBooking)
 
-        val judul = intent.getStringExtra("judul")
+        //Ambil data dari Detail
+        val tour = intent.getParcelableExtra<TourData>("tour")
         val tanggal = intent.getStringExtra("tanggal")
         val jam = intent.getStringExtra("jam")
 
-        tvBookingJudul.text = "Booking $judul"
+        if (tour == null) {
+            Toast.makeText(this, "Data tour tidak ditemukan", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
 
-        val btnSubmit = findViewById<Button>(R.id.btnSubmitBooking)
+        tvBookingJudul.text = "Booking ${tour.judul}"
+
 
         btnSubmit.setOnClickListener {
+            val nama = etNama.text.toString().trim()
+            val telpon = etTelpon.text.toString().trim()
+            val jumlah = etJumlah.text.toString().trim()
 
+            if (nama.isEmpty() || telpon.isEmpty() || jumlah.isEmpty()) {
+                Toast.makeText(this, "Lengkapi semua data", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-            val data = hashMapOf(
-                "judul" to judul,
+            val bookingData = hashMapOf(
+                "judul" to tour.judul,
+                "kota" to tour.kota,
                 "tanggal" to tanggal,
                 "jam" to jam,
-                "nama" to etNama.text.toString(),
-                "telpon" to etTelpon.text.toString(),
-                "jumlah" to etJumlah.text.toString()
+                "nama" to nama,
+                "telpon" to telpon,
+                "jumlah" to jumlah
             )
+
             db.collection("booking")
-                .add(data)
+                .add(bookingData)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Booking sukses!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Booking berhasil!", Toast.LENGTH_SHORT).show()
+                    finish()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Gagal menyimpan!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Gagal booking", Toast.LENGTH_SHORT).show()
                 }
+        }
+
+        val btnBack2 = findViewById<ImageView>(R.id.btnBack2)
+        btnBack2.setOnClickListener {
+            finish()
         }
     }
 }
