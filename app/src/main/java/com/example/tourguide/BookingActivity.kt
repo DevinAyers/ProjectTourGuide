@@ -62,6 +62,7 @@ class BookingActivity : AppCompatActivity() {
             }
 
             val bookingData = hashMapOf(
+                "gambarUrl" to tour.gambarUrl,
                 "judul" to tour.judul,
                 "kota" to tour.kota,
                 "tanggal" to tanggal,

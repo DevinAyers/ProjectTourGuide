@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class HistoryAdapter (private val list: ArrayList<HistoryData>)
     : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
@@ -37,15 +38,11 @@ class HistoryAdapter (private val list: ArrayList<HistoryData>)
         holder.jumlah.text = "Jumlah: ${item.jumlah}"
         holder.tanggal.text = "Tanggal: ${item.tanggal}"
         holder.jam.text = "Jam: ${item.jam}"
-        val imgRes = when (item.judul) {
-            "Jakarta" -> R.drawable.jakarta1
-            "Malang" -> R.drawable.malang1
-            "Bali" -> R.drawable.bali1
-            "Batu" -> R.drawable.batu1
-            "Surabaya" -> R.drawable.surabaya1
-            "Yogyakarta" -> R.drawable.yogyakarta1
-            else -> R.drawable.banner2
-        }
-        holder.img.setImageResource(imgRes)
+
+        Glide.with(holder.itemView.context)
+            .load(item.gambarUrl)
+            .placeholder(R.drawable.banner2)
+            .error(R.drawable.banner2)
+            .into(holder.img)
     }
 }

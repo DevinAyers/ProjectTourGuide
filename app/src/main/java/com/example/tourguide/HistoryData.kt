@@ -6,5 +6,6 @@ data class HistoryData(
     val telpon: String,
     val jumlah: String,
     val tanggal: String,
-    val jam: String
+    val jam: String,
+    val gambarUrl: String
 )

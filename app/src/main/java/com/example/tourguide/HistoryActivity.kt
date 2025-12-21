@@ -66,7 +66,8 @@ class HistoryActivity : AppCompatActivity() {
                         telpon = doc.getString("telpon") ?: "",
                         jumlah = doc.getString("jumlah") ?: "",
                         tanggal = doc.getString("tanggal") ?: "",
-                        jam = doc.getString("jam") ?: ""
+                        jam = doc.getString("jam") ?: "",
+                        gambarUrl = doc.getString("gambarUrl") ?: ""
                     )
                     list.add(data)
                 }
