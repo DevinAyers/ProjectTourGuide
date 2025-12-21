@@ -2,6 +2,7 @@ package com.example.tourguide
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -56,6 +57,13 @@ class BookingActivity : AppCompatActivity() {
             val telpon = etTelpon.text.toString().trim()
             val jumlah = etJumlah.text.toString().trim()
 
+            val jumlahOrangInt = etJumlah.text.toString().toInt()
+            val sisaKuota = tour.kuota - jumlahOrangInt
+            if (sisaKuota < 0 ){
+                Toast.makeText(this, "Kuota tidak mencukupi", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if (nama.isEmpty() || telpon.isEmpty() || jumlah.isEmpty()) {
                 Toast.makeText(this, "Lengkapi semua data", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -76,10 +84,19 @@ class BookingActivity : AppCompatActivity() {
                 .add(bookingData)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Booking berhasil!", Toast.LENGTH_SHORT).show()
-                    finish()
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, "Gagal booking", Toast.LENGTH_SHORT).show()
+                }
+
+            db.collection("tours").document(tour.id)
+                .update("kuota",sisaKuota)
+                .addOnSuccessListener {
+                    Log.d("BookingActivity", "berhasil update kuota")
+                    finish()
+                }
+                .addOnFailureListener {
+                    Log.e("BookingActivity", "gagal update kuota", it)
                 }
         }
 

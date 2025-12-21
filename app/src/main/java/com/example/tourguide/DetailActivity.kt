@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.google.firebase.firestore.FirebaseFirestore
 
 class DetailActivity : AppCompatActivity() {
 
@@ -33,6 +34,7 @@ class DetailActivity : AppCompatActivity() {
         val spinnerJam = findViewById<Spinner>(R.id.spinnerJam)
         val imgDetail = findViewById<ImageView>(R.id.imgDetail)
         val btnBooking = findViewById<Button>(R.id.btnBooking)
+        val db = FirebaseFirestore.getInstance()
 
         val tour = intent.getParcelableExtra<TourData>("tour")
 
@@ -40,6 +42,19 @@ class DetailActivity : AppCompatActivity() {
             finish()
             return
         }
+
+        db.collection("tours").document(tour.id)
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    finish()
+                    return@addSnapshotListener
+                }
+                if (snapshot != null && snapshot.exists()) {
+                    val kuotaTerbaru = snapshot.getLong("kuota")?.toInt()
+                    tvKuota.text = "Kuota: $kuotaTerbaru"
+                    tour.kuota = kuotaTerbaru?:0
+                }
+            }//supaya update counter kuota nya jalan
 
         tvJudul.text = tour.judul
         tvDeskripsi.text = tour.deskripsi
