@@ -17,6 +17,8 @@ class TourAdapter( private var list : List<TourData>, private val onItemClick: (
             val kota : TextView = itemView.findViewById(R.id.tvTourKota)
         }
 
+    private var listFull : List<TourData> = ArrayList(list)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TourViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_tour, parent, false)
         return TourViewHolder(view)
@@ -41,7 +43,22 @@ class TourAdapter( private var list : List<TourData>, private val onItemClick: (
 
     fun updateData(lists : List<TourData>){
         list = lists
+        listFull = lists
         notifyDataSetChanged()
+    }
+
+    fun query(query : String){
+        if (query.isEmpty()){
+            list = listFull
+        }else{
+            val queryBersih = query.lowercase().trim()
+            list = listFull.filter {
+                it.judul.lowercase().contains(queryBersih) || it.kota.lowercase().contains(queryBersih)
+            }
+
+        }
+        notifyDataSetChanged()
+
     }
 
 

@@ -2,12 +2,14 @@ package com.example.tourguide
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
@@ -31,7 +33,7 @@ class HomeActivity : AppCompatActivity() {
             insets
         }
 
-        // ===== RecyclerView =====
+
         rvTours = findViewById(R.id.rvTours)
         rvTours.layoutManager = LinearLayoutManager(this)
 
@@ -42,6 +44,13 @@ class HomeActivity : AppCompatActivity() {
         }
 
         rvTours.adapter = adapter
+
+        val etSearch = findViewById<EditText>(R.id.etSearch)
+
+        etSearch.addTextChangedListener{ text->
+            val query = text.toString()
+            adapter.query(query)
+        }
 
         loadToursFromFirebase()
 

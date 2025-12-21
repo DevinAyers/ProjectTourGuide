@@ -18,11 +18,11 @@
 
         <EditText
             android:id="@+id/etSearch"
-            android:hint="Cari Kota Wisata..."
+            android:hint="Cari Kota Wisata"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:paddingHorizontal="16dp"
-            android:background="@drawable/search_btn"
+            android:background="@color/white"
             android:layout_marginBottom="16dp"
             android:inputType="text"/>
 
