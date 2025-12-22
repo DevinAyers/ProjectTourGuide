@@ -2,7 +2,9 @@ package com.example.tourguide
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -12,6 +14,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeActivity : AppCompatActivity() {
@@ -46,6 +50,22 @@ class HomeActivity : AppCompatActivity() {
         rvTours.adapter = adapter
 
         val etSearch = findViewById<EditText>(R.id.etSearch)
+
+
+        val ivProfile = findViewById<ImageView>(R.id.ivProfile)
+        ivProfile.setOnClickListener {
+            val auth = Firebase.auth
+            val currUser = auth.currentUser
+            Log.e("HomeActivity", "Current user: $currUser")
+            if (currUser!=null){
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+
+            }else{
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
+        }
 
         etSearch.addTextChangedListener{ text->
             val query = text.toString()

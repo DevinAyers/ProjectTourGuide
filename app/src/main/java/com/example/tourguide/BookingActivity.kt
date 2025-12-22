@@ -12,6 +12,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class BookingActivity : AppCompatActivity() {
@@ -68,8 +70,14 @@ class BookingActivity : AppCompatActivity() {
                 Toast.makeText(this, "Lengkapi semua data", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-
+            val user  = Firebase.auth.currentUser
+            if (user == null) {
+                Toast.makeText(this, "Silakan login ulang", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             val bookingData = hashMapOf(
+                "userId" to user?.uid,
+                "userEmail" to user?.email,
                 "gambarUrl" to tour.gambarUrl,
                 "judul" to tour.judul,
                 "kota" to tour.kota,

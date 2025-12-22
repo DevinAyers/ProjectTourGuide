@@ -2,6 +2,7 @@ package com.example.tourguide
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
@@ -12,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class DetailActivity : AppCompatActivity() {
@@ -77,11 +80,25 @@ class DetailActivity : AppCompatActivity() {
         )
 
         btnBooking.setOnClickListener {
-            val intent = Intent(this, BookingActivity::class.java)
-            intent.putExtra("tour", tour)
-            intent.putExtra("tanggal", spinnerTanggal.selectedItem.toString())
-            intent.putExtra("jam", spinnerJam.selectedItem.toString())
-            startActivity(intent)
+
+            val auth = Firebase.auth
+
+            val currUser = auth.currentUser
+            Log.e("DetailActivity", "Current user: $currUser")
+
+            if (currUser!=null){
+                val intent = Intent(this, BookingActivity::class.java)
+                intent.putExtra("tour", tour)
+                intent.putExtra("tanggal", spinnerTanggal.selectedItem.toString())
+                intent.putExtra("jam", spinnerJam.selectedItem.toString())
+                startActivity(intent)
+            }else{
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
+
+
+
         }
 
         val btnBack = findViewById<ImageView>(R.id.btnBack3)
