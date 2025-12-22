@@ -2,6 +2,7 @@ package com.example.tourguide
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -12,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 
 class HistoryActivity : AppCompatActivity() {
@@ -45,7 +47,7 @@ class HistoryActivity : AppCompatActivity() {
         val btnFooterHome = findViewById<LinearLayout>(R.id.btnFooterHome)
 
         btnFooterHistory.setOnClickListener {
-            startActivity(Intent(this, HistoryActivity::class.java))
+
         }
 
         btnFooterHome.setOnClickListener {
@@ -55,7 +57,17 @@ class HistoryActivity : AppCompatActivity() {
     }
 
     private fun loadHistory() {
+        val auth = Firebase.auth
+
+        val currUser = auth.currentUser
+
+        if (currUser==null){
+            Toast.makeText(this,"Silakan login", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         db.collection("booking")
+            .whereEqualTo("userId",currUser.uid)
             .get()
             .addOnSuccessListener { result ->
                 list.clear()
@@ -71,7 +83,14 @@ class HistoryActivity : AppCompatActivity() {
                     )
                     list.add(data)
                 }
+                if (list.isEmpty){
+                    Toast.makeText(this,"Belum ada riwayat pemesanan", Toast.LENGTH_SHORT).show()
+                }
                 adapter.notifyDataSetChanged()
             }
+            .addOnFailureListener {e->
+                Log.e("HistoryActivity","gagal ambil data error ${e.message}")
+            }
+
     }
 }
