@@ -89,6 +89,9 @@ class DetailActivity : AppCompatActivity() {
             if (currUser!=null){
                 val intent = Intent(this, BookingActivity::class.java)
                 intent.putExtra("tour", tour)
+                intent.putExtra("id",tour.id)
+                intent.putExtra("judul",tour.judul)
+                intent.putExtra("harga", tour.harga)
                 intent.putExtra("tanggal", spinnerTanggal.selectedItem.toString())
                 intent.putExtra("jam", spinnerJam.selectedItem.toString())
                 startActivity(intent)

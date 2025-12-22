@@ -1,5 +1,6 @@
 package com.example.tourguide
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,8 @@ class HistoryAdapter (private val list: ArrayList<HistoryData>)
         val tanggal: TextView = itemView.findViewById(R.id.tvHistTanggal)
         val jam: TextView = itemView.findViewById(R.id.tvHistJam)
         val kota: TextView = itemView.findViewById(R.id.tvHistKota)
+        val imgBukti: ImageView = itemView.findViewById(R.id.imgHistBukti)
+        val status : TextView = itemView.findViewById(R.id.tvHistStatus)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
@@ -40,6 +43,7 @@ class HistoryAdapter (private val list: ArrayList<HistoryData>)
         holder.tanggal.text = "Tanggal: ${item.tanggal}"
         holder.jam.text = "Jam: ${item.jam}"
         holder.kota.text = "Kota: ${item.kota}"
+        holder.status.text = "Status: ${item.status}"
 
 
         Glide.with(holder.itemView.context)
@@ -47,5 +51,18 @@ class HistoryAdapter (private val list: ArrayList<HistoryData>)
             .placeholder(R.drawable.banner2)
             .error(R.drawable.banner2)
             .into(holder.img)
+
+        if (item.buktiUrl.isNotEmpty()){
+            Glide.with(holder.itemView.context)
+                .load(item.buktiUrl)
+                .placeholder(R.drawable.banner2)
+                .error(R.drawable.banner2)
+                .into(holder.imgBukti)
+        }else{
+            Log.e("HistoryAdapter", "buktiUrl kosong: ${item.buktiUrl}")
+
+        }
+
+
     }
 }

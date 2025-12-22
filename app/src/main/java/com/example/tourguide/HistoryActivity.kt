@@ -76,11 +76,14 @@ class HistoryActivity : AppCompatActivity() {
                         judul = doc.getString("judul") ?: "",
                         nama = doc.getString("nama") ?: "",
                         telpon = doc.getString("telpon") ?: "",
-                        jumlah = doc.getString("jumlah") ?: "",
+                        jumlah = doc.get("jumlah").toString()?.toIntOrNull() ?: 0,
+                        totalHarga = doc.getLong("totalHarga")?.toInt() ?: 0,
+                        status = doc.getString("status") ?: "",
                         tanggal = doc.getString("tanggal") ?: "",
                         jam = doc.getString("jam") ?: "",
                         kota = doc.getString("kota") ?:"",
-                        gambarUrl = doc.getString("gambarUrl") ?: ""
+                        gambarUrl = doc.getString("gambarUrl") ?: "",
+                        buktiUrl = doc.getString("buktiPembayaranUrl") ?:""
                     )
                     list.add(data)
                 }

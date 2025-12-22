@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity: AppCompatActivity() {
 
@@ -49,6 +50,32 @@ class LoginActivity: AppCompatActivity() {
                         Toast.makeText(this, "Login Fail", Toast.LENGTH_SHORT).show()
                         Log.e("Login", "Login failed: ${task.exception}")
                     }
+
+//                    val uid =auth.currentUser?.uid
+//                    val db  = FirebaseFirestore.getInstance()
+
+//                    if (uid!=null){
+//                        db.collection("users").document(uid).get()
+//                            .addOnSuccessListener { data->
+//                                val role = data.getString("role")
+//                                if (role=="admin"){
+//                                    val intent = Intent(this, AdminActivity::class.java)
+//                                    startActivity(intent)
+//                                    finish()
+//                                }else{
+//                                    val intent = Intent(this, HomeActivity::class.java)
+//                                    startActivity(intent)
+//                                    finish()
+//                                }
+//
+//
+//                            }
+//                            .addOnFailureListener {
+//                                val intent = Intent(this, HomeActivity::class.java)
+//                                startActivity(intent)
+//                                finish()
+//                            }
+//                    }
 
                 }
 

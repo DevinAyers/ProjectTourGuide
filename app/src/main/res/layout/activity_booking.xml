@@ -52,6 +52,16 @@
         android:layout_height="wrap_content"
         android:hint="Jumlah Orang"
         android:inputType="number"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/tvTotalHarga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Bayar: Rp 0"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:layout_marginBottom="20dp" />
 
     <TextView
@@ -63,7 +73,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"/>
 
-    <!--QR -->
     <ImageView
         android:id="@+id/imgQR"
         android:layout_width="match_parent"
@@ -74,6 +83,7 @@
         android:layout_marginBottom="8dp"/>
 
     <TextView
+        android:id="@+id/tvInstruksi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Transfer ke:\nBCA 1234567890\nTour Guide App"
@@ -109,5 +119,6 @@
         android:layout_height="wrap_content"
         android:text="Konfirmasi Booking"
         android:backgroundTint="#4CAF50"/>
+
   </LinearLayout>
 </ScrollView>

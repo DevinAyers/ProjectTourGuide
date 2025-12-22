@@ -13,6 +13,7 @@ data class TourData(
     val kota: String ="",
     var kuota: Int=0,
     val gambarUrl: String="",
+    val harga: Int=0,
     val jamTersedia : List<String> = listOf(),
     val tanggalTersedia : List<String> = listOf()
 ) : Parcelable
