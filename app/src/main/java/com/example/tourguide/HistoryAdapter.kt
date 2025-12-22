@@ -19,6 +19,7 @@ class HistoryAdapter (private val list: ArrayList<HistoryData>)
         val jumlah: TextView = itemView.findViewById(R.id.tvHistJumlah)
         val tanggal: TextView = itemView.findViewById(R.id.tvHistTanggal)
         val jam: TextView = itemView.findViewById(R.id.tvHistJam)
+        val kota: TextView = itemView.findViewById(R.id.tvHistKota)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
@@ -38,6 +39,8 @@ class HistoryAdapter (private val list: ArrayList<HistoryData>)
         holder.jumlah.text = "Jumlah: ${item.jumlah}"
         holder.tanggal.text = "Tanggal: ${item.tanggal}"
         holder.jam.text = "Jam: ${item.jam}"
+        holder.kota.text = "Kota: ${item.kota}"
+
 
         Glide.with(holder.itemView.context)
             .load(item.gambarUrl)

@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
 class BookingActivity : AppCompatActivity() {
@@ -98,7 +99,7 @@ class BookingActivity : AppCompatActivity() {
                 }
 
             db.collection("tours").document(tour.id)
-                .update("kuota",sisaKuota)
+                .update("kuota", FieldValue.increment(-jumlahOrangInt.toLong()))
                 .addOnSuccessListener {
                     Log.d("BookingActivity", "berhasil update kuota")
                     finish()

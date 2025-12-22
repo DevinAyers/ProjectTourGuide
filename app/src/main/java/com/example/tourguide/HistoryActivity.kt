@@ -51,7 +51,7 @@ class HistoryActivity : AppCompatActivity() {
         }
 
         btnFooterHome.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
         }
 
     }
@@ -79,6 +79,7 @@ class HistoryActivity : AppCompatActivity() {
                         jumlah = doc.getString("jumlah") ?: "",
                         tanggal = doc.getString("tanggal") ?: "",
                         jam = doc.getString("jam") ?: "",
+                        kota = doc.getString("kota") ?:"",
                         gambarUrl = doc.getString("gambarUrl") ?: ""
                     )
                     list.add(data)
