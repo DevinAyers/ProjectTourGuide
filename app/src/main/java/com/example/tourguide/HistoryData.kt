@@ -9,6 +9,7 @@ data class HistoryData(
     val nama: String,
     val telpon: String,
     val jumlah: Int=0,
+    val harga: Int=0,
     val totalHarga: Int=0,
     val status : String ="",
     val tanggal: String,

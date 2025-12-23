@@ -23,6 +23,9 @@ class HistoryAdapter (private val list: ArrayList<HistoryData>, private val onIt
         val kota: TextView = itemView.findViewById(R.id.tvHistKota)
         val imgBukti: ImageView = itemView.findViewById(R.id.imgHistBukti)
         val status : TextView = itemView.findViewById(R.id.tvHistStatus)
+        val harga : TextView = itemView.findViewById(R.id.tvHistHarga)
+        val totalHarga : TextView = itemView.findViewById(R.id.tvHistTotalBayar)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
@@ -44,6 +47,9 @@ class HistoryAdapter (private val list: ArrayList<HistoryData>, private val onIt
         holder.jam.text = "Jam: ${item.jam}"
         holder.kota.text = "Kota: ${item.kota}"
         holder.status.text = "Status: ${item.status}"
+        holder.harga.text = "Harga: ${item.harga}"
+        holder.totalHarga.text = "Total Harga: ${item.totalHarga}"
+
 
         if (item.status=="SUCCESS"){
             holder.status.setTextColor(holder.itemView.context.getColor(R.color.green))

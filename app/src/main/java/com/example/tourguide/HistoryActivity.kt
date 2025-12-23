@@ -102,6 +102,7 @@ class HistoryActivity : AppCompatActivity() {
                         nama = doc.getString("nama") ?: "",
                         telpon = doc.getString("telpon") ?: "",
                         jumlah = doc.get("jumlah").toString()?.toIntOrNull() ?: 0,
+                        harga= doc.getLong("harga")?.toInt() ?: 0,
                         totalHarga = doc.getLong("totalHarga")?.toInt() ?: 0,
                         status = doc.getString("status") ?: "",
                         tanggal = doc.getString("tanggal") ?: "",
