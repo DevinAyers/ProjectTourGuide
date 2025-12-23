@@ -45,6 +45,14 @@ class HistoryAdapter (private val list: ArrayList<HistoryData>, private val onIt
         holder.kota.text = "Kota: ${item.kota}"
         holder.status.text = "Status: ${item.status}"
 
+        if (item.status=="SUCCESS"){
+            holder.status.setTextColor(holder.itemView.context.getColor(R.color.green))
+        }else if (item.status=="CANCELLED"){
+            holder.status.setTextColor(holder.itemView.context.getColor(R.color.red))
+        }else if (item.status=="PENDING"){
+            holder.status.setTextColor(holder.itemView.context.getColor(R.color.black))
+        }
+
 
 
         Glide.with(holder.itemView.context)
