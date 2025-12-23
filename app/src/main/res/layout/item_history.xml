@@ -1,79 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    app:cardCornerRadius="12dp"
+    android:background="#EEEEEE"
+    app:cardElevation="4dp"
     android:padding="16dp"
-    android:layout_marginBottom="12dp"
-    android:background="#FFFFFF"
-    android:elevation="3dp">
+    android:layout_marginBottom="12dp">
 
-    <ImageView
-        android:id="@+id/imgHist"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:scaleType="centerCrop"
-        android:layout_marginBottom="12dp"
-        android:src="@drawable/banner2"
-        android:background="@android:color/darker_gray" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#EEEEEE"
+        android:padding="16dp"
+        >
 
-    <TextView
-        android:id="@+id/tvHistJudul"
-        android:text="Judul Tour"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/imgHist"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="12dp"
+            android:src="@drawable/banner2"
+            android:background="@android:color/darker_gray" />
 
-    <TextView
-        android:id="@+id/tvHistNama"
-        android:text="Nama pelanggan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvHistJudul"
+            android:text="Judul Tour"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/tvHistTelpon"
-        android:text="Telpon"
-        android:layout_marginTop="2dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvHistNama"
+            android:text="Nama pelanggan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/tvHistJumlah"
-        android:text="Jumlah orang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvHistTelpon"
+            android:text="Telpon"
+            android:layout_marginTop="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/tvHistTanggal"
-        android:text="Tanggal"
-        android:layout_marginTop="2dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvHistJumlah"
+            android:text="Jumlah orang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvHistHarga"
+            android:text="Harga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvHistTotalBayar"
+            android:text="Total Bayar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/tvHistJam"
-        android:text="Jam"
-        android:layout_marginTop="2dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/tvHistKota"
-        android:text="Kota"
-        android:layout_marginTop="2dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/tvHistStatus"
-        android:text="Status"
-        android:layout_marginTop="2dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/imgHistBukti"
-        android:src="@drawable/outline_add_photo_alternate_24"/>
+        <TextView
+            android:id="@+id/tvHistTanggal"
+            android:text="Tanggal"
+            android:layout_marginTop="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvHistJam"
+            android:text="Jam"
+            android:layout_marginTop="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvHistKota"
+            android:text="Kota"
+            android:layout_marginTop="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvHistStatus"
+            android:text="Status"
+            android:layout_marginTop="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imgHistBukti"
+            android:src="@drawable/outline_add_photo_alternate_24"/>
+
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
+
