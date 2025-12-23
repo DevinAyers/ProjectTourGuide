@@ -88,6 +88,9 @@ class HistoryActivity : AppCompatActivity() {
 
         if (currUser==null){
             Toast.makeText(this,"Silakan login", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
             return
         }
 
