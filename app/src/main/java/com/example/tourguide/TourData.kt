@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class TourData(
-    @DocumentId
+
     val id: String = "",
     val judul: String ="",
     val deskripsi: String ="",
