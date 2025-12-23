@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class HistoryAdapter (private val list: ArrayList<HistoryData>)
+class HistoryAdapter (private val list: ArrayList<HistoryData>, private val onItemClick: (String) -> Unit)//unit ini return void artinya
     : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
 
     class HistoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -46,6 +46,7 @@ class HistoryAdapter (private val list: ArrayList<HistoryData>)
         holder.status.text = "Status: ${item.status}"
 
 
+
         Glide.with(holder.itemView.context)
             .load(item.gambarUrl)
             .placeholder(R.drawable.banner2)
@@ -61,6 +62,10 @@ class HistoryAdapter (private val list: ArrayList<HistoryData>)
         }else{
             Log.e("HistoryAdapter", "buktiUrl kosong: ${item.buktiUrl}")
 
+        }
+
+        holder.imgBukti.setOnClickListener {
+            onItemClick(item.buktiUrl)
         }
 
 

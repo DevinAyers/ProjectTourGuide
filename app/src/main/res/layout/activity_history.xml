@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".HistoryActivity"
     android:padding="0dp"
-    android:background="#7FC8F6"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <ImageView
@@ -36,6 +36,29 @@
         android:layout_weight="1"
         android:paddingHorizontal="16dp"
         android:paddingBottom="16dp"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/zoomLayout"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imgZoomed"
+            android:scaleType="fitCenter"
+            android:layout_margin="24dp"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/btnCloseZoom"
+            android:src="@drawable/close"
+            android:layout_gravity="top|start"
+            android:layout_margin="24dp"/>
+
+
+    </FrameLayout>
 
     <!-- Bagian Footer -->
     <LinearLayout
@@ -90,4 +113,6 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>
+
